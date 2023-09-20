@@ -17,6 +17,7 @@ public class assignment_2 {
 					if (hashmap.get(separated[x]) == null) {
 						hashmap.put(separated[x], 1);
 					}
+					
 					else {
 						hashmap.put(separated[x], hashmap.get(separated[x]) +1);
 					}
