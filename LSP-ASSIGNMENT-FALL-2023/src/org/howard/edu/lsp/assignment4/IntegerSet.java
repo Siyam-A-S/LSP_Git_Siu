@@ -57,6 +57,13 @@ public class IntegerSet {
         return set.size();
     }
 	/**
+	 * This method returns true if the set is empty
+	 * @return boolean
+	 */
+	public boolean isEmpty() {
+        return set.isEmpty();
+    }
+	/**
 	 * This method returns true if the set contains the value
 	 * @param value
 	 * @return boolean
@@ -64,5 +71,62 @@ public class IntegerSet {
 	public boolean contains(int value) {
         return set.contains(value);
     }
+	/**
+	 * 
+	 * @return maximum element
+	 * @throws IntegerSetException
+	 */
+	public int largest() throws IntegerSetException {
+        if (isEmpty()) {
+            throw new IntegerSetException("Set is empty");
+        }
+        int max = set.get(0);
+        for (int value : set) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
+    }
+	
+	public int smallest() throws IntegerSetException {
+        if (isEmpty()) {
+            throw new IntegerSetException("Set is empty");
+        }
+        int min = set.get(0);
+        for (int value : set) {
+            if (value < min) {
+                min = value;
+            }
+        }
+        return min;
+    }
+    public void union(IntegerSet intSetb) {
+        set.addAll(intSetb.set);
+    }
 
+    public void intersect(IntegerSet intSetb) {
+        set.retainAll(intSetb.set);
+    }
+
+    public void diff(IntegerSet intSetb) {
+        set.removeAll(intSetb.set);
+    }
+
+    public void complement(IntegerSet intSetb) {
+        List<Integer> complement = new ArrayList<>();
+        for (int i = Integer.MIN_VALUE; i <= Integer.MAX_VALUE; i++) {
+            if (!set.contains(i) && !intSetb.set.contains(i)) {
+                complement.add(i);
+            }
+        }
+        set = complement;
+    }
+
+}
+
+class IntegerSetException extends Exception {
+    public IntegerSetException(String message) {
+        super(message);
+    }
 }
