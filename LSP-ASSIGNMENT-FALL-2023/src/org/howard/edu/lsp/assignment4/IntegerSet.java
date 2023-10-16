@@ -86,9 +86,9 @@ public class IntegerSet {
         return set.contains(value);
     }
 	/**
-	 * 
+	 * This method returns the largest element in the set
 	 * @return maximum element
-	 * @throws IntegerSetException
+	 * @throws IntegerSetException - when the set is empty
 	 */
 	public int largest() throws IntegerSetException {
         if (isEmpty()) {
@@ -102,7 +102,11 @@ public class IntegerSet {
         }
         return max;
     }
-	
+	/**
+	 * This method returns the smallest element in the set
+	 * @return smallest element
+	 * @throws IntegerSetException - when the set is empty
+	 */
 	public int smallest() throws IntegerSetException {
         if (isEmpty()) {
             throw new IntegerSetException("Set is empty");
