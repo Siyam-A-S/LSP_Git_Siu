@@ -30,7 +30,7 @@ public class IntegerSet {
 		}
 	}
 	/**
-	 * A void class which clears out the Integer set
+	 * A void method which clears out the Integer set
 	 */
 	public void clear() {
 		set.clear();
