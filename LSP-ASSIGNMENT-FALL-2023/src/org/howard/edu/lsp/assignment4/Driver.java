@@ -15,10 +15,12 @@ public class Driver {
         initialSet.add(1);
         initialSet.add(2);
         initialSet.add(4);
+        System.out.println("A list initialized =  "+initialSet);
         IntegerSet setB = new IntegerSet(initialSet);
         
         // String representation of the sets defined
         System.out.println("Set A: " + setA.toString());
+        System.out.println("Coonstructed Set B passing in already initialized list: " + initialSet.toString());
         System.out.println("Set B: " + setB.toString());
         
         
@@ -54,24 +56,41 @@ public class Driver {
         setA.add(6);
         setA.add(3);
         setA.add(3); // Adding a duplicate element
-        System.out.println("Set A after adding elements: " + setA); // Should print [1, 2, 3]
+        System.out.println("Set A after adding elements 1, 6, 3, 3: " + setA); // Should print [1, 6, 3]
 
         // Test Case 10: remove()
         setA.remove(3);
         System.out.println("Set A after removing 3: " + setA); // Should print [1, 3]
-
+        
+        System.out.println("~~~~~~~~~~~~~~~");
+        System.out.println("Set A: " + setA.toString());
+        System.out.println("Set B: " + setB.toString());
+        
         // Test Case 11: union()
         setA.union(setB);
         System.out.println("Union of setA and setB: " + setA); // Should print [1, 3, 2]
-
+        
+        // String representation of the sets defined
+        System.out.println("Set A: " + setA.toString());
+        System.out.println("Set B: " + setB.toString());
+        System.out.println("~~~~~~~~~~~~~~~");
+        
         // Test Case 12: intersect()
         setA.intersect(setB);
         System.out.println("Intersection of setA and setB: " + setA); // Should print [2]
-
+        
+        System.out.println("Set A: " + setA.toString());
+        System.out.println("Set B: " + setB.toString());
+        System.out.println("~~~~~~~~~~~~~~~");
+        
         // Test Case 13: diff()
         setA.diff(setB);
         System.out.println("Set difference (setA - setB): " + setA); // Should print []
        
+        System.out.println("Set A: " + setA.toString());
+        System.out.println("Set B: " + setB.toString());
+        System.out.println("~~~~~~~~~~~~~~~");
+        
         // Test Case 14: isEmpty()
         System.out.println("Is setA empty? " + setA.isEmpty()); // Should print true
        
