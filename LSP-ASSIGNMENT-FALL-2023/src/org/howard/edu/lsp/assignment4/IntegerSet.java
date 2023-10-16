@@ -7,6 +7,20 @@ public class IntegerSet {
 	private List<Integer> set = new ArrayList<Integer>();
 	
 	/**
+	 * Default Constructor of the IntegerSet class
+	 */
+		public IntegerSet() {
+		}
+
+	/**
+	 * Constructor if you want to pass in already initialized
+	 * @param set
+	 */
+	public IntegerSet(ArrayList<Integer> set) {
+		this.set = set;
+	}
+	
+	/**
 	 * This method add an integer to the Integer Set if it is already not in it
 	 * @param item
 	 */
@@ -101,27 +115,46 @@ public class IntegerSet {
         }
         return min;
     }
-    public void union(IntegerSet intSetb) {
-        set.addAll(intSetb.set);
-    }
+	/**
+	 * This method does the union operation on two or more sets
+	 * @param intSetb
+	 */
+	public void union(IntegerSet intSetb) {
+	    for (int value : intSetb.set) {
+	        if (!set.contains(value)) {
+	            set.add(value);
+	        }
+	    }
+	}
 
+	/**
+	 * This method does the intersection operation on two or more sets
+	 * @param intSetb
+	 */
     public void intersect(IntegerSet intSetb) {
         set.retainAll(intSetb.set);
     }
-
+    /**
+     * This method does the difference operation on two or more sets
+     * @param intSetb
+     */
     public void diff(IntegerSet intSetb) {
         set.removeAll(intSetb.set);
     }
-
-    public void complement(IntegerSet intSetb) {
+    /**
+     * This method finds the complement when given an universal set 
+     * @param Universal set
+     */
+    public void complement(IntegerSet universalSet) {
         List<Integer> complement = new ArrayList<>();
-        for (int i = Integer.MIN_VALUE; i <= Integer.MAX_VALUE; i++) {
-            if (!set.contains(i) && !intSetb.set.contains(i)) {
+        for (int i : universalSet.set) {
+            if (!set.contains(i)) {
                 complement.add(i);
             }
         }
         set = complement;
     }
+
 
 }
 
