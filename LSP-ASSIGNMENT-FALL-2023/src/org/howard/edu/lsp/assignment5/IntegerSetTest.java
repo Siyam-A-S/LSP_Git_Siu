@@ -122,8 +122,8 @@ public class IntegerSetTest {
     @Test
     @DisplayName("Test case for complement")
     public void testComplement() {
-        IntegerSet universalSet = new IntegerSet(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5)));
-        nonEmptySet.complement(universalSet);
+        IntegerSet setB = new IntegerSet(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5)));
+        nonEmptySet.complement(setB);
         assertEquals("[4, 5]", nonEmptySet.toString());
     }
 }
